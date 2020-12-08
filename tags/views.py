@@ -1,4 +1,5 @@
 from rest_framework import viewsets
+from rest_framework.pagination import PageNumberPagination
 from rest_framework.permissions import AllowAny
 
 from tags.models import Tag
@@ -10,5 +11,6 @@ class TagViewSet(viewsets.ModelViewSet):
     serializer_class = TagSerializer
     permission_classes = (AllowAny,)
     # permission_classes = (IsAuthenticated,)
+    pagination_class = PageNumberPagination
 
 

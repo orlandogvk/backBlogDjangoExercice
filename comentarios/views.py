@@ -1,5 +1,6 @@
 from rest_framework import viewsets, status
 from rest_framework.decorators import action
+from rest_framework.pagination import PageNumberPagination
 from rest_framework.permissions import AllowAny
 from rest_framework.response import Response
 from comentarios.models import Comentario
@@ -12,6 +13,8 @@ class ComentarioViewSet(viewsets.ModelViewSet):
     serializer_class = ComentarioSerializer
     permission_classes = (AllowAny, )
     # permission_classes = (IsAuthenticated,AllowAny)
+    # pagination_class = StandardResultsSetPagination
+    pagination_class = PageNumberPagination
 
 
     @action(methods=['GET'], detail=True)
